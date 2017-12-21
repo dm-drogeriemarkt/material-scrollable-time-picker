@@ -13,20 +13,15 @@ module.exports = {
     rules: [
       {
         test: /\.js|jsx$/,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-                ['react'],                    
-                ['es2015', { modules: false }]
-              ]
-          }
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        query: {
+          presets: ['react', 'env', 'es2015'],
+          plugins: ['transform-class-properties', 'transform-object-rest-spread']
         }
-      }
-    ]
-  },
+    }
+    ]},
   plugins: [
-    new webpack.optimize.UglifyJsPlugin()
+    // new webpack.optimize.UglifyJsPlugin()
   ]
 }
