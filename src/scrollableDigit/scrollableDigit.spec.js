@@ -33,7 +33,7 @@ describe('<ScrollableDigit>', () => {
 
 
     const wrapper = mount(<ScrollableDigit {...createProps()} />);
-    const scrollableDiv = wrapper.find('ScrollableDigit').childAt(0);
+    const scrollableDiv = wrapper.find('ScrollableDigit').childAt(0).childAt(0);
 
     wrapper.setProps(newProps);
 
@@ -45,7 +45,7 @@ describe('<ScrollableDigit>', () => {
     const props = createProps();
 
     const wrapper = mount(<ScrollableDigit {...props} />);
-    const scrollableDiv = wrapper.find('ScrollableDigit').childAt(0);
+    const scrollableDiv = wrapper.find('ScrollableDigit').childAt(0).childAt(0);
     scrollableDiv.getDOMNode().scrollTop = 150;
     scrollableDiv.simulate('scroll');
 
@@ -60,7 +60,7 @@ describe('<ScrollableDigit>', () => {
     const props = createProps();
 
     const wrapper = mount(<ScrollableDigit {...props} />);
-    const scrollableDiv = wrapper.find('ScrollableDigit').childAt(0);
+    const scrollableDiv = wrapper.find('ScrollableDigit').childAt(0).childAt(0);
     scrollableDiv.getDOMNode().scrollTop = 149;
     scrollableDiv.simulate('scroll');
 

@@ -2,6 +2,7 @@ import { shallow } from 'enzyme';
 import React from 'react';
 import { createMockMediaMatcher } from '../../setupTests';
 import ScrollableTimePicker from './scrollableTimePicker';
+import { log } from 'core-js/library/web/timers';
 
 function createProps() {
   return {
@@ -182,6 +183,7 @@ describe('<ScrollableTimePicker />', () => {
 
     expect(wrapper.find('TextField').props().value).toBe('8:30 Uhr');
     wrapper.find('Dialog').props().actions[0].props.onClick();
+    wrapper.update();
     expect(wrapper.find('TextField').props().value).toBe('9:30 Uhr');
   });
 
@@ -193,9 +195,9 @@ describe('<ScrollableTimePicker />', () => {
 
     wrapper.find('TextField').simulate('click');
     wrapper.find('#sam-time-picker-subtract-hour').simulate('click');
-
     expect(wrapper.find('TextField').props().value).toBe('11:00 Uhr');
     wrapper.find('Dialog').props().actions[0].props.onClick();
+    wrapper.update();
     expect(wrapper.find('TextField').props().value).toBe('');
   });
 
@@ -209,12 +211,12 @@ describe('<ScrollableTimePicker />', () => {
     const arrowUpEvent = new KeyboardEvent('keydown', { key: 'ArrowUp' });
     window.dispatchEvent(arrowUpEvent);
     window.dispatchEvent(arrowUpEvent);
-
+    wrapper.update();
     expect(wrapper.find('TextField').props().value).toBe('14:00 Uhr');
 
     const arrowDownEvent = new KeyboardEvent('keydown', { key: 'ArrowDown' });
     window.dispatchEvent(arrowDownEvent);
-
+    wrapper.update();
     expect(wrapper.find('TextField').props().value).toBe('13:00 Uhr');
   });
 
@@ -231,12 +233,12 @@ describe('<ScrollableTimePicker />', () => {
 
     const arrowUpEvent = new KeyboardEvent('keydown', { key: 'ArrowUp' });
     window.dispatchEvent(arrowUpEvent);
-
+    wrapper.update();
     expect(wrapper.find('TextField').props().value).toBe('12:30 Uhr');
 
     const arrowDownEvent = new KeyboardEvent('keydown', { key: 'ArrowDown' });
     window.dispatchEvent(arrowDownEvent);
-
+    wrapper.update();
     expect(wrapper.find('TextField').props().value).toBe('12:00 Uhr');
   });
 });
