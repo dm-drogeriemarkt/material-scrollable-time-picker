@@ -1,6 +1,6 @@
 {
   "name": "material-scrollable-time-picker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A scrollable time picker for Material-UI",
   "main": "src/scrollableTimePicker/index.js",
   "scripts": {

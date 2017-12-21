@@ -1,6 +1,0 @@
-.sonarlint
-.vscode
-.npmrcignore
-.npmrc
-node_modules
-npm-debug.log

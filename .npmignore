@@ -1,0 +1,12 @@
+.sonarlint
+.vscode
+.npmignore
+.npmrc
+.babelrc
+.gitignore
+node_modules
+npm-debug.log
+src
+setupTests.js
+webpack.config.js
+yarn.lock

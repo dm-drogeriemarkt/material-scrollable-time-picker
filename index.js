@@ -1,0 +1,1 @@
+module.exports = require("./dist/scrollable-time-picker.min.js")
