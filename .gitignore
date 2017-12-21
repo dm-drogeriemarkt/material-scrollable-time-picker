@@ -6,3 +6,5 @@ build
 coverage
 config
 npm-debug.log
+.npmrc
+yarn-error-log
