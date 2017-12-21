@@ -3,9 +3,9 @@
 
 
 This is a time picker component where hours and minutes can be selected via scrolling.
-It uses Material-UI and is perfectly embeddable in the Meterial-UI landscape.
+It uses Material-UI and is perfectly embeddable in the Material-UI landscape.
 
-<img src="screenshot.png" style="width: 200px;"/>
+![Material-Ui Scrollable Time Picker Screenshot](screenshot.png)
 
 ## Using the Component
 
