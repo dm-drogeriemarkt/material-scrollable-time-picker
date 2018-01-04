@@ -59,9 +59,8 @@ class ScrollableDigit extends Component {
         <div
           ref={(scrollableDiv) => { this.scrollableDiv = scrollableDiv; }}
           style={{
-            overflow: 'auto',
-            display: 'flex',
-            flexDirection: 'column',
+            overflowY: 'auto',
+            overflowX: 'hidden',
             height: '100%',
             width: '100%',
             paddingRight: '17px'
