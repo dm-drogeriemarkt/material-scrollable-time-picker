@@ -1,3 +1,3 @@
-import ScrollableDigit from './scrollableDigit.jsx';
+import ScrollableDigit from './scrollableDigit.component';
 
 export default ScrollableDigit;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { TextField, FlatButton, RaisedButton, Dialog } from 'material-ui';
-import { NavigationExpandMore, NavigationExpandLess } from 'material-ui/svg-icons';
+import { Dialog, RaisedButton, TextField } from 'material-ui';
+import { NavigationExpandLess, NavigationExpandMore } from 'material-ui/svg-icons';
 import PropTypes from 'prop-types';
 import ScrollableDigit from '../scrollableDigit';
 
@@ -30,7 +30,6 @@ const defaultProps = {
 const controlElementStyle = {
   display: 'flex', flexDirection: 'column', alignItems: 'center', fontSize: '20px'
 };
-
 
 class ScrollableTimePicker extends Component {
   constructor(props) {
@@ -121,7 +120,8 @@ class ScrollableTimePicker extends Component {
   };
 
   handleOpen = () => {
-    this.setState({ open: true,
+    this.setState({
+      open: true,
       hour: this.state.hour ? this.state.hour : this.props.getDefaultValue(this.props.value).hour,
       minute: this.state.minute ? this.state.minute : this.props.getDefaultValue(this.props.value).minute
     });
@@ -156,18 +156,18 @@ class ScrollableTimePicker extends Component {
 
   render() {
     const actions = [
-      <FlatButton
+      <RaisedButton
+        style={{ marginRight: 10 }}
         label="Abbrechen"
-        secondary
         onClick={() => {
           this.handleClose();
           this.resetTimeValue();
         }}
       />,
-      <FlatButton
+      <RaisedButton
+        style={{ marginLeft: 10 }}
         label="OK"
         primary
-        keyboardFocused
         onClick={() => {
           this.handleClose();
           this.setTimeValue();
@@ -239,7 +239,7 @@ class ScrollableTimePicker extends Component {
           errorText={this.props.errorText}
         />
         <Dialog
-          actionsContainerStyle={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', paddingBottom: 15 }}
+          actionsContainerStyle={{ padding: '8px 0 15px 0', textAlign: 'center' }}
           title={`${this.props.floatingLabelText} - ${this.state.hour}:${this.doubleDigitalizeMinutes(this.state.minute)} Uhr`}
           titleStyle={{ color: this.props.textColor }}
           contentStyle={contentStyle}
@@ -286,7 +286,7 @@ class ScrollableTimePicker extends Component {
             </div>
             {':'}
             <div className="minute-navigation-container" id="minute-navigation-container" style={controlElementStyle}>
-              <NavigationExpandLess style={arrowStyle} id="sam-time-picker-add-minute" onClick={this.toggleMinutes} />
+              <NavigationExpandLess style={arrowStyle} id="sam-time-picker-add-minute" onClick={this.toggleMinutes}/>
               <ScrollableDigit
                 containerStyle={this.state.focusField === 'MINUTE' ? digitStyleWithFocus : digitStyle}
                 singleDigitStyle={singleDigitStyle}

@@ -1,3 +1,3 @@
-import ScrollableTimePicker from './scrollableTimePicker.jsx';
+import ScrollableTimePicker from './scrollableTimePicker.component';
 
 export default ScrollableTimePicker;

@@ -1,8 +1,7 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 import { createMockMediaMatcher } from '../../setupTests';
-import ScrollableTimePicker from './scrollableTimePicker';
-import { log } from 'core-js/library/web/timers';
+import ScrollableTimePicker from './scrollableTimePicker.component';
 
 function createProps() {
   return {

@@ -28,7 +28,7 @@ class ScrollableDigit extends Component {
     }
   }
 
-  doubleDigitalizeMinutes = (minute) => minute < 10 ? `0${minute}` : minute
+  doubleDigitalizeMinutes = (minute) => minute < 10 ? `0${minute}` : minute;
 
   handleScrollEvent = (event) => {
     const element = event.target;
@@ -41,15 +41,14 @@ class ScrollableDigit extends Component {
       element.scrollTop = value * this.props.singleDigitStyle.height;
     }, 200);
 
-  }
+  };
 
   render() {
     const valueList = [];
     this.props.valueList.forEach((element) => {
       valueList.push(<div key={element} style={this.props.singleDigitStyle}>
         {this.props.type === 'minute' ? this.doubleDigitalizeMinutes(element) : element}
-      </div>
-      );
+      </div>);
     });
 
     return (

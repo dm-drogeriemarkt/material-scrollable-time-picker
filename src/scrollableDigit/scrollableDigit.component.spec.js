@@ -1,6 +1,6 @@
 import { mount } from 'enzyme';
 import React from 'react';
-import ScrollableDigit from './scrollableDigit';
+import ScrollableDigit from './scrollableDigit.component';
 
 jest.useFakeTimers();
 
@@ -12,12 +12,14 @@ function createProps() {
     },
     value: 0,
     valueList: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    containerStyle: { fontSize: '55px',
+    containerStyle: {
+      fontSize: '55px',
       width: '60px',
       padding: '8px 0 0 5px',
       textAlign: 'center',
       border: '1px solid black',
-      overflow: 'hidden' },
+      overflow: 'hidden'
+    },
     setValue: jest.fn()
   };
 }
