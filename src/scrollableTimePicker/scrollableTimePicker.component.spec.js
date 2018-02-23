@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 import { createMockMediaMatcher } from '../../setupTests';
-import ScrollableTimePicker from './scrollableTimePicker.component';
+import ScrollableTimePicker from '../scrollableTimePicker';
 
 const nineTwentyfive = new Date();
 nineTwentyfive.setHours(9);
