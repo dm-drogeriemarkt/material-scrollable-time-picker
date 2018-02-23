@@ -1,6 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
   entry: './src/scrollableTimePicker/index.js',
@@ -8,7 +7,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'scrollable-time-picker.min.js',
     libraryTarget: 'umd',
-    library: 'scrollable-time-picker'
+    library: 'ScrollableTimePicker'
   },
   module: {
     rules: [
@@ -22,7 +21,7 @@ module.exports = {
         }
     }
     ]},
-    externals: [nodeExternals()],
+    externals: [{'react': 'React'}],
   plugins: [
     // new webpack.optimize.UglifyJsPlugin()
   ]
