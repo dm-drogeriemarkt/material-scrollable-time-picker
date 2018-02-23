@@ -1,11 +1,12 @@
-src/
 .sonarlint
 .vscode
 .npmignore
 .npmrc
 .babelrc
 .gitignore
-node_modules/
+.travis.yml
+src/
 setupTests.js
 webpack.config.js
 yarn.lock
+
