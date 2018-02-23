@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@stash.dm-drogeriemarkt.com:7999/osi/material-scrollable-time-picker.git"
+    "url": "ssh://git@github.com:dm-drogeriemarkt/material-scrollable-time-picker.git"
   },
   "keywords": [
     "scrollable",
