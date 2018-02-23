@@ -3,6 +3,14 @@ import React from 'react';
 import { createMockMediaMatcher } from '../../setupTests';
 import ScrollableTimePicker from './scrollableTimePicker.component';
 
+const nineTwentyfive = new Date();
+nineTwentyfive.setHours(9);
+nineTwentyfive.setMinutes(25);
+
+const nineThirty = new Date();
+nineThirty.setHours(9);
+nineThirty.setMinutes(30);
+
 function createProps() {
   return {
     onChange: jest.fn(),
@@ -22,7 +30,7 @@ describe('<ScrollableTimePicker />', () => {
     const props = createProps();
     const newProps = {
       ...props,
-      value: new Date('2017-06-23T09:25+0200')
+      value: nineTwentyfive
     };
 
     const wrapper = shallow(<ScrollableTimePicker {...props} />);
@@ -37,7 +45,7 @@ describe('<ScrollableTimePicker />', () => {
     const props = createProps();
     const newProps = {
       ...props,
-      value: new Date('2017-06-23T09:25+0200')
+      value: nineTwentyfive
     };
 
     const wrapper = shallow(<ScrollableTimePicker {...props} />);
@@ -54,7 +62,7 @@ describe('<ScrollableTimePicker />', () => {
     const props = createProps();
     const newProps = {
       ...props,
-      value: new Date('2017-06-23T09:25+0200')
+      value: nineTwentyfive
     };
 
     const wrapper = shallow(<ScrollableTimePicker {...props} />);
@@ -71,7 +79,7 @@ describe('<ScrollableTimePicker />', () => {
     const props = createProps();
     const newProps = {
       ...props,
-      value: new Date('2017-06-23T09:25+0200')
+      value: nineTwentyfive
     };
 
     const wrapper = shallow(<ScrollableTimePicker {...props} />);
@@ -88,7 +96,7 @@ describe('<ScrollableTimePicker />', () => {
     const props = createProps();
     const newProps = {
       ...props,
-      value: new Date('2017-06-23T09:30+0200')
+      value: nineThirty
     };
 
     const wrapper = shallow(<ScrollableTimePicker {...props} />);
@@ -105,7 +113,7 @@ describe('<ScrollableTimePicker />', () => {
     const props = createProps();
     const newProps = {
       ...props,
-      value: new Date('2017-06-23T09:25+0200')
+      value: nineTwentyfive
     };
 
     const wrapper = shallow(<ScrollableTimePicker {...props} />);
@@ -122,7 +130,7 @@ describe('<ScrollableTimePicker />', () => {
     const props = createProps();
     const newProps = {
       ...props,
-      value: new Date('2017-06-23T09:30+0200')
+      value: nineThirty
     };
 
     const wrapper = shallow(<ScrollableTimePicker {...props} />);
@@ -139,7 +147,7 @@ describe('<ScrollableTimePicker />', () => {
     const props = createProps();
     const newProps = {
       ...props,
-      value: new Date('2017-06-23T09:30+0200')
+      value: nineThirty
     };
 
     const wrapper = shallow(<ScrollableTimePicker {...props} />);
@@ -148,7 +156,7 @@ describe('<ScrollableTimePicker />', () => {
     wrapper.find('TextField').simulate('click');
     wrapper.find('Dialog').props().actions[1].props.onClick();
 
-    expect(props.onChange).toBeCalledWith(new Date('2017-06-23T07:30:00.000Z'));
+    expect(props.onChange).toBeCalledWith(nineThirty);
     expect(wrapper.find('TextField').props().value).toBe('9:30 Uhr');
   });
 
@@ -156,7 +164,7 @@ describe('<ScrollableTimePicker />', () => {
     const props = createProps();
     const newProps = {
       ...props,
-      value: new Date('2017-06-23T09:30+0200')
+      value: nineThirty
     };
 
     const wrapper = shallow(<ScrollableTimePicker {...props} />);
@@ -172,7 +180,7 @@ describe('<ScrollableTimePicker />', () => {
     const props = createProps();
     const newProps = {
       ...props,
-      value: new Date('2017-06-23T09:30+0200')
+      value: nineThirty
     };
 
     const wrapper = shallow(<ScrollableTimePicker {...props} />);
