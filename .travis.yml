@@ -4,11 +4,10 @@ node_js:
 
 cache: yarn
 
-before_deploy: 
+after_success: 
   - echo "Bundling with webpack ..."
   - npm run build
 
-script: echo "Deploying to npm ..."
 deploy:
   provider: npm
   email: opensource@dm.de
