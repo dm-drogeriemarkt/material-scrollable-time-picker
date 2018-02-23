@@ -4,8 +4,9 @@ node_js:
 
 cache: yarn
 
-script: echo "Bundling with webpack ..."
-script: npm run build
+before_deploy: 
+  - echo "Bundling with webpack ..."
+  - npm run build
 
 script: echo "Deploying to npm ..."
 deploy:
