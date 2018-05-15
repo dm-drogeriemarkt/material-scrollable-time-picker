@@ -232,6 +232,7 @@ class ScrollableTimePicker extends Component {
       <div>
         <TextField
           fullWidth
+          readonly="true"
           disabled={this.props.disabled}
           floatingLabelText={`${this.props.floatingLabelText}${this.props.required ? '*' : ''}`}
           value={isNaN(this.state.minute) || isNaN(this.state.hour) ? '' : `${this.state.hour}:${this.doubleDigitalizeMinutes(this.state.minute)} Uhr`}
