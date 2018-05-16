@@ -248,4 +248,16 @@ describe('<ScrollableTimePicker />', () => {
     wrapper.update();
     expect(wrapper.find('TextField').props().value).toBe('12:00 Uhr');
   });
+
+  it('TextField should blur onFocus', () => {
+    const props = createProps();
+
+    const wrapper = shallow(<ScrollableTimePicker {...props} />);
+    const focusEventMock = { target: { blur: jest.fn()}};
+
+    wrapper.find('TextField').simulate('focus', focusEventMock);
+
+    expect(focusEventMock.target.blur).toHaveBeenCalled()
+  });
+
 });
