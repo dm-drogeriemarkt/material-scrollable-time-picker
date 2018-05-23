@@ -17,15 +17,24 @@ const defaultProps = {
 class ScrollableDigit extends Component {
 
   componentDidMount() {
-    if (this.scrollableDiv) {
-      this.scrollableDiv.scrollTop = this.props.value * this.props.singleDigitStyle.height;
-    }
+    window.addEventListener('resize', this.setScrollableDiv);
+    this.setScrollableDiv();   
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.scrollableDiv && (this.props.value !== nextProps.value)) {
       this.scrollableDiv.scrollTop = nextProps.value * this.props.singleDigitStyle.height;
     }
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.setScrollableDiv);
+  }
+
+  setScrollableDiv = () => {
+      if (this.scrollableDiv) {
+        this.scrollableDiv.scrollTop = this.props.value * this.props.singleDigitStyle.height;
+      }
   }
 
   doubleDigitalizeMinutes = (minute) => minute < 10 ? `0${minute}` : minute;
