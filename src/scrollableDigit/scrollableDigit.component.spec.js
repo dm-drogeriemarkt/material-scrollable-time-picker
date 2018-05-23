@@ -72,4 +72,21 @@ describe('<ScrollableDigit>', () => {
     expect(props.setValue).toHaveBeenCalledWith(1);
   });
 
+  it('should change digit on resize', () => {
+    
+    const props = createProps();
+    props.value = 1;
+
+    const wrapper = mount(<ScrollableDigit {...props} />);
+    const scrollableDiv = wrapper.find('ScrollableDigit').childAt(0).childAt(0);
+    scrollableDiv.getDOMNode().scrollTop = 149;
+
+    const resize = new Event('resize');
+    window.dispatchEvent(resize);
+
+    jest.runAllTimers();
+
+    expect(scrollableDiv.getDOMNode().scrollTop).toBe(100);
+  });
+
 });

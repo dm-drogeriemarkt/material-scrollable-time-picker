@@ -46,6 +46,8 @@ class ScrollableTimePicker extends Component {
   componentWillMount() {
     window.addEventListener('keydown', this.keyboardEventListener);
     window.addEventListener('resize', this.detectLandscapeMode);
+    
+    this.detectLandscapeMode();
 
     if (this.props.value) {
       const dateValue = new Date(this.props.value);
@@ -212,14 +214,16 @@ class ScrollableTimePicker extends Component {
       bodyStyle.flexDirection = 'row';
       bodyStyle.justifyContent = 'space-around';
       bodyStyle.alignItems = 'center';
-      bodyStyle.padding = '24px';
-      contentStyle.maxWidth = '500px';
-      digitStyle.fontSize = '20px';
-      digitStyle.height = '20px';
-      digitStyle.width = '20px';
+      bodyStyle.padding = 24;
+      bodyStyle.minHeight = 60;
+      contentStyle.maxWidth = 500;
+      singleDigitStyle.height = 20;
+      digitStyle.fontSize = 20;
+      digitStyle.height = 20;
+      digitStyle.width = 55;
       digitStyle.padding = '4px 3px 0';
-      controlsContainerStyle.fontSize = '20px';
-      controlsContainerStyle.width = '175px';
+      controlsContainerStyle.fontSize = 20;
+      controlsContainerStyle.width = 175;
       arrowStyle = {};
     }
 
