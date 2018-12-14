@@ -1,10 +1,14 @@
 import React from 'react';
 import ScrollableTimePicker from "../scrollableTimePicker/scrollableTimePicker.component";
 import { storiesOf } from '@storybook/react';
-import {MuiThemeProvider} from "material-ui";
-import {getMuiTheme} from "material-ui/styles/index";
+import {MuiThemeProvider} from "@material-ui/core";
+import {createMuiTheme} from "@material-ui/core";
 
-const muiTheme = getMuiTheme({});
+const muiTheme = createMuiTheme({
+    typography: {
+        useNextVariants: true,
+      }
+});
 
 const stories = storiesOf('material-scrollable-time-picker', module);
 
@@ -23,6 +27,7 @@ stories.add('TimePicker', () => (
     textColor={'#000'}
     shadowColor={'#ddd'}
     focusedShadowColor={'#eee'}
+    errorText="bla blub fehler fooo buh!"
     />
 </MuiThemeProvider>
 ));
