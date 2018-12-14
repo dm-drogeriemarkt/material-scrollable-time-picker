@@ -46,6 +46,8 @@
     },
     "setupFiles": [
       "<rootDir>/setupTests.js"
-    ]
+    ],
+    "testURL": "http://localhost"
+
   }
 }
