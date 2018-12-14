@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Dialog, Button, TextField } from '@material-ui/core';
+import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField } from '@material-ui/core';
 import { ExpandLess, ExpandMore } from '@material-ui/icons';
 import PropTypes from 'prop-types';
 import ScrollableDigit from '../scrollableDigit';
@@ -249,19 +249,20 @@ class ScrollableTimePicker extends Component {
           helperText={this.props.errorText ? this.getErrorText(this.props.errorText) : ''}
         />
         <Dialog
-          actionsContainerStyle={{ padding: '8px 0 15px 0', textAlign: 'center' }}
-          title={`${this.props.floatingLabelText} - ${this.state.hour}:${this.doubleDigitalizeMinutes(this.state.minute)} Uhr`}
-          titleStyle={{ color: this.props.textColor }}
-          contentStyle={contentStyle}
-          bodyStyle={bodyStyle}
-          actions={actions}
-          modal={false}
           open={this.state.open}
-          onRequestClose={() => {
+          onClose={() => {
             this.handleClose();
             this.resetTimeValue();
           }}
+          classes={{paper: { shape: { borderRadius: 0}}}}
+          PaperProps={{square: true}}
         >
+          <DialogTitle>
+            <div style={{ color: this.props.textColor }} >
+              {`${this.props.floatingLabelText} - ${this.state.hour}:${this.doubleDigitalizeMinutes(this.state.minute)} Uhr`}
+            </div>
+          </DialogTitle>
+          <DialogContent >
           <div
             className="time-picker-controls-container"
             id="time-picker-controls-container"
@@ -316,9 +317,8 @@ class ScrollableTimePicker extends Component {
             {'Uhr'}
           </div>
           <Button
-            variant="contained"
-            secondary
-            style={{ margin: '10px 0' }}
+            variant="raised"
+            color="secondary"
             onClick={() => {
               const businessHour = this.props.getDefaultValue(this.props.value);
               this.setState({
@@ -326,8 +326,34 @@ class ScrollableTimePicker extends Component {
                 minute: businessHour.minute
               });
             }}
-            label={`Auf ${this.props.defaultValueLabel} setzen`}
-          />
+          > 
+            Auf {this.props.defaultValueLabel} setzen
+          </Button>
+        </DialogContent>
+        <DialogActions style={{ padding: '8px 0 15px 0', textAlign: 'center', justifyContent: 'center' }}>
+            <Button
+              variant="raised"
+              style={{ marginRight: 10 }}
+              label="Abbrechen"
+              onClick={() => {
+                this.handleClose();
+                this.resetTimeValue();
+              }}
+            >
+              Abbrechen
+            </Button>
+            <Button
+              variant="raised"
+              style={{ marginLeft: 10 }}
+              color="primary"
+              onClick={() => {
+                this.handleClose();
+                this.setTimeValue();
+              }}
+            >
+              OK
+            </Button>
+          </DialogActions>
         </Dialog>
       </div>
     );
