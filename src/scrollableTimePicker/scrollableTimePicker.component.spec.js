@@ -37,7 +37,7 @@ describe('<ScrollableTimePicker />', () => {
     wrapper.setProps(newProps);
 
     expect(wrapper.find('TextField').props().value).toBe('9:25 Uhr');
-    expect(wrapper.find('Dialog').props().title).toBe(`${props.floatingLabelText} - 9:25 Uhr`);
+    expect(wrapper.find('#title').text()).toBe(`${props.floatingLabelText} - 9:25 Uhr`);
   });
 
 
@@ -55,7 +55,7 @@ describe('<ScrollableTimePicker />', () => {
     wrapper.find('#sam-time-picker-add-hour').simulate('click');
 
     expect(wrapper.find('TextField').props().value).toBe('10:25 Uhr');
-    expect(wrapper.find('Dialog').props().title).toBe(`${props.floatingLabelText} - 10:25 Uhr`);
+    expect(wrapper.find('#title').text()).toBe(`${props.floatingLabelText} - 10:25 Uhr`);
   });
 
   it('should subtract an hour when clicking on bottom arrow', () => {
@@ -72,7 +72,7 @@ describe('<ScrollableTimePicker />', () => {
     wrapper.find('#sam-time-picker-subtract-hour').simulate('click');
 
     expect(wrapper.find('TextField').props().value).toBe('8:25 Uhr');
-    expect(wrapper.find('Dialog').props().title).toBe(`${props.floatingLabelText} - 8:25 Uhr`);
+    expect(wrapper.find('#title').text()).toBe(`${props.floatingLabelText} - 8:25 Uhr`);
   });
 
   it('should toggle minutes to 30 when clicking on top arrow and minutes are < 30', () => {
@@ -89,7 +89,7 @@ describe('<ScrollableTimePicker />', () => {
     wrapper.find('#sam-time-picker-subtract-minute').simulate('click');
 
     expect(wrapper.find('TextField').props().value).toBe('9:30 Uhr');
-    expect(wrapper.find('Dialog').props().title).toBe(`${props.floatingLabelText} - 9:30 Uhr`);
+    expect(wrapper.find('#title').text()).toBe(`${props.floatingLabelText} - 9:30 Uhr`);
   });
 
   it('should toggle minutes to 0 when clicking on top arrow and minutes are >= 30', () => {
@@ -106,7 +106,7 @@ describe('<ScrollableTimePicker />', () => {
     wrapper.find('#sam-time-picker-subtract-minute').simulate('click');
 
     expect(wrapper.find('TextField').props().value).toBe('9:00 Uhr');
-    expect(wrapper.find('Dialog').props().title).toBe(`${props.floatingLabelText} - 9:00 Uhr`);
+    expect(wrapper.find('#title').text()).toBe(`${props.floatingLabelText} - 9:00 Uhr`);
   });
 
   it('should toggle minutes to 30 when clicking on bottom arrow and minutes are < 30', () => {
@@ -123,7 +123,7 @@ describe('<ScrollableTimePicker />', () => {
     wrapper.find('#sam-time-picker-subtract-minute').simulate('click');
 
     expect(wrapper.find('TextField').props().value).toBe('9:30 Uhr');
-    expect(wrapper.find('Dialog').props().title).toBe(`${props.floatingLabelText} - 9:30 Uhr`);
+    expect(wrapper.find('#title').text()).toBe(`${props.floatingLabelText} - 9:30 Uhr`);
   });
 
   it('should toggle minutes to 0 when clicking on bottom arrow and minutes are >= 30', () => {
@@ -140,7 +140,7 @@ describe('<ScrollableTimePicker />', () => {
     wrapper.find('#sam-time-picker-subtract-minute').simulate('click');
 
     expect(wrapper.find('TextField').props().value).toBe('9:00 Uhr');
-    expect(wrapper.find('Dialog').props().title).toBe(`${props.floatingLabelText} - 9:00 Uhr`);
+    expect(wrapper.find('#title').text()).toBe(`${props.floatingLabelText} - 9:00 Uhr`);
   });
 
   it('should call onChange function when clicking on OK', () => {

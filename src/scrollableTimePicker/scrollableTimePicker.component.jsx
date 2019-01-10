@@ -46,7 +46,7 @@ class ScrollableTimePicker extends Component {
   componentWillMount() {
     window.addEventListener('keydown', this.keyboardEventListener);
     window.addEventListener('resize', this.detectLandscapeMode);
-    
+
     this.detectLandscapeMode();
 
     if (this.props.value) {
@@ -258,7 +258,7 @@ class ScrollableTimePicker extends Component {
           PaperProps={{square: true}}
         >
           <DialogTitle>
-            <div style={{ color: this.props.textColor }} >
+            <div style={{ color: this.props.textColor }} id="title" >
               {`${this.props.floatingLabelText} - ${this.state.hour}:${this.doubleDigitalizeMinutes(this.state.minute)} Uhr`}
             </div>
           </DialogTitle>
@@ -326,7 +326,7 @@ class ScrollableTimePicker extends Component {
                 minute: businessHour.minute
               });
             }}
-          > 
+          >
             Auf {this.props.defaultValueLabel} setzen
           </Button>
         </DialogContent>
