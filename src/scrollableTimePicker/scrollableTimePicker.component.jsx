@@ -332,6 +332,7 @@ class ScrollableTimePicker extends Component {
         </DialogContent>
         <DialogActions style={{ padding: '8px 0 15px 0', textAlign: 'center', justifyContent: 'center' }}>
             <Button
+              id="cancelButton"
               variant="raised"
               style={{ marginRight: 10 }}
               label="Abbrechen"
@@ -343,6 +344,7 @@ class ScrollableTimePicker extends Component {
               Abbrechen
             </Button>
             <Button
+              id="okButton"
               variant="raised"
               style={{ marginLeft: 10 }}
               color="primary"

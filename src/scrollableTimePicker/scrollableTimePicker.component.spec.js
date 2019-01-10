@@ -154,7 +154,7 @@ describe('<ScrollableTimePicker />', () => {
     wrapper.setProps(newProps);
 
     wrapper.find('TextField').simulate('click');
-    wrapper.find('Dialog').props().actions[1].props.onClick();
+    wrapper.find('#okButton').simulate('click');
 
     expect(props.onChange).toBeCalledWith(nineThirty);
     expect(wrapper.find('TextField').props().value).toBe('9:30 Uhr');
@@ -171,7 +171,7 @@ describe('<ScrollableTimePicker />', () => {
     wrapper.setProps(newProps);
 
     wrapper.find('TextField').simulate('click');
-    wrapper.find('Dialog').props().actions[0].props.onClick();
+    wrapper.find('#cancelButton').simulate('click');
 
     expect(props.onChange).not.toHaveBeenCalled();
   });
@@ -189,7 +189,7 @@ describe('<ScrollableTimePicker />', () => {
     wrapper.find('#sam-time-picker-subtract-hour').simulate('click');
 
     expect(wrapper.find('TextField').props().value).toBe('8:30 Uhr');
-    wrapper.find('Dialog').props().actions[0].props.onClick();
+    wrapper.find('#cancelButton').simulate('click');
     wrapper.update();
     expect(wrapper.find('TextField').props().value).toBe('9:30 Uhr');
   });
@@ -203,7 +203,7 @@ describe('<ScrollableTimePicker />', () => {
     wrapper.find('TextField').simulate('click');
     wrapper.find('#sam-time-picker-subtract-hour').simulate('click');
     expect(wrapper.find('TextField').props().value).toBe('11:00 Uhr');
-    wrapper.find('Dialog').props().actions[0].props.onClick();
+    wrapper.find('#cancelButton').simulate('click');
     wrapper.update();
     expect(wrapper.find('TextField').props().value).toBe('');
   });
