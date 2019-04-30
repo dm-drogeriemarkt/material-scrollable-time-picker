@@ -1013,7 +1013,7 @@
 
 "@material-ui/core@^3.9.3":
   version "3.9.3"
-  resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-mcr/@material-ui/core/-/core-3.9.3.tgz#d378c1f4beb18df9a534ca7258c2c33fb8e0e51f"
+  resolved "https://registry.npmjs.org/@material-ui/core/-/core-3.9.3.tgz#d378c1f4beb18df9a534ca7258c2c33fb8e0e51f"
   integrity sha1-03jB9L6xjfmlNMpyWMLDP7jg5R8=
   dependencies:
     "@babel/runtime" "^7.2.0"
@@ -1046,7 +1046,7 @@
 
 "@material-ui/icons@^3.0.2":
   version "3.0.2"
-  resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-mcr/@material-ui/icons/-/icons-3.0.2.tgz#d67a6dd1ec8312d3a88ec97944a63daeef24fe10"
+  resolved "https://registry.npmjs.org/@material-ui/icons/-/icons-3.0.2.tgz#d67a6dd1ec8312d3a88ec97944a63daeef24fe10"
   integrity sha1-1npt0eyDEtOojsl5RKY9ru8k/hA=
   dependencies:
     "@babel/runtime" "^7.2.0"
