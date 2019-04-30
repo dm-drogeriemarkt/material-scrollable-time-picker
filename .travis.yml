@@ -1,17 +1,15 @@
 language: node_js
 node_js:
-  - "8"
-
+- '8'
 cache: yarn
-
-after_success: 
-  - echo "Bundling with webpack ..."
-  - npm run build
-
+after_success:
+- echo "Bundling with webpack ..."
+- npm run build
 deploy:
   provider: npm
   email: opensource@dm.de
-  api_key: Fe36+bh131ox/GWO55LAIyutYRBebzkYte5is8aT9x5vsFz8TijI8SMtlMR0bFrVbYgxp7WlI65i7jkyiepZ0ExWF4B79HJ8Sf7oftDfz4ZKo2wZbUsn/qZbM5Wh6VozTl59limp0f0ePxQ91qJ/bYlZWVcFjm3bsgxUjezZEPZIVnl96tOUWCTIU1nRJuVroNnweTqfzeiQryDKRggUMaXLO+yqm4l84H7f6IrKpNasCBxwDQCnyOOBalHFxpZbxl98NOia+inbZC6rpmzYZEn51YocZ5jAesq+xjl11J6lRFzbx3EP5LKOlUiEBf6EjDQGtoAq1Wv8H5/fx21RjbLmetE4p+nT1rWVfuTj38pti2QrxPiMrsaqrKC8cKpD712RTEJyQ51fzu+VQLySRTyG0TkXXntvKEgejkDezzcFAjUjPk2BK+oUFhmuJFRdtzA1J5RknWcfbj2/jiUwxHsQzaUj45jcxYUBQRo1Wr0gKI3x6FKpndfXMYZuno6Ky/ONPSKCnfaz9vnGkRolH1r6QKTJ+ObIYsHkImkhejz2rO2/+Urtpf92CIL1Vz0n/f1V9Tg8AidGVbECFnVCDT3linX22w4Vv0MVeR9POoB8E6tttMrHJuIOFRF7/q1w4GD2lKl1ooauDwibSluCkon6DPtsVrCT93BSlhqEvYo=
+  api_key:
+    secure: ay0wSgepdnRX3MGzdphhjlJGiqk0tpHgPDOZ9b2akikz5cqU87fjewvxc81ROJ12UJqoZwk8Y5JJDBpBma8XfHkn+902HYexCxN1R5X1JjZm9H7lqWmuMpazeCErEWsbhyMc8t4vtxWNpZuRr+UUJX5qgA9dqmulzgchQjtIkJaGOV2c/eZbv0NXOTzNL0av6RKBInyclH/I/s+YMbIpxRfs1aSLarrJrSEUPhydfRCiOiEuCGe/T9wVfIGEbVz7u0fxATSnCbTgM0qYKGC0SLrw3rFEpvHVApe/tybIhooVlJ7WAIX6lH1+7S7R7Hjxyo4n2SFGsez9vCMvjnA55CBL5/opWJAJJDsboyPoE2dvRVqZC76vuOcndKVjJPMTJllNVfnuzOJw3cbgrWpxnNrh+x7TWYQOsPhukJlH2/zisnlSWlsJ0CJMYwQ5WAt49XBISKS/BaOLXYDBG1qhKcItdAsAQxET8/B/ONfSqYc2+p33IRHNQBOIga2Ne91HY0J03ivm+KC/6HNWp3m70c71mxOL8j1bmwQN9QimOnugE3j+nVCxNPEKcjSHafMUKq8mx0UnZbRX1dxdgs7XMe0LwWPTrNGy38f99ULRL9Wo4SHhZp8vd1u597jzwTtVmdXBplsmJKiWhgbn+9+v57laXWfHjYAa2fsJVaMsPGY=
   on:
     tags: true
     repo: dm-drogeriemarkt/material-scrollable-time-picker
