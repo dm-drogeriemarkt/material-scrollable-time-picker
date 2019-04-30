@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "test-watch": "jest --watch",
-    "build": "webpack"
+    "build": "webpack",
+    "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,9 @@
   "author": "Sven Müller, Paul Jodiss",
   "license": "MIT",
   "devDependencies": {
+    "@material-ui/core": "^3.9.3",
+    "@material-ui/icons": "^3.0.2",
+    "@storybook/react": "^4.1.1",
     "babel-core": "^6.26.0",
     "babel-jest": "^22.0.3",
     "babel-loader": "^7.1.2",
@@ -33,11 +37,11 @@
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "jest": "^22.0.3",
-    "material-ui": "^0.20.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "webpack": "^3.10.0",
+    "webpack": "^4.3.0",
+    "webpack-cli": "^3.1.2",
     "webpack-node-externals": "^1.6.0"
   },
   "jest": {
@@ -46,6 +50,7 @@
     },
     "setupFiles": [
       "<rootDir>/setupTests.js"
-    ]
+    ],
+    "testURL": "http://localhost"
   }
 }

@@ -1,6 +1,6 @@
 # Material-Ui Scrollable Time Picker
 
-
+[![dmTECH](https://opensourcelogos.aws.dmtech.cloud/dmTECH_opensource_logo%401x.png)](https://dmtech.de)
 
 This is a time picker component where hours and minutes can be selected via scrolling.
 It uses Material-UI and is perfectly embeddable in the Material-UI landscape.
@@ -36,7 +36,7 @@ $ npm run test-watch
 ```
 ## License
 
-Copyright (c) 2017 dm-drogerie markt GmbH & Co. KG, https://dm.de
+Copyright (c) 2017-2018 , dmTech GmbH https://www.dmTECH.de
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

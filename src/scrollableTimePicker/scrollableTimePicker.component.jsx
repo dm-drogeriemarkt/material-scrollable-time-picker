@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Dialog, RaisedButton, TextField } from 'material-ui';
-import { NavigationExpandLess, NavigationExpandMore } from 'material-ui/svg-icons';
+import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField } from '@material-ui/core';
+import { ExpandLess, ExpandMore } from '@material-ui/icons';
 import PropTypes from 'prop-types';
 import ScrollableDigit from '../scrollableDigit';
 
@@ -46,7 +46,7 @@ class ScrollableTimePicker extends Component {
   componentWillMount() {
     window.addEventListener('keydown', this.keyboardEventListener);
     window.addEventListener('resize', this.detectLandscapeMode);
-    
+
     this.detectLandscapeMode();
 
     if (this.props.value) {
@@ -155,10 +155,14 @@ class ScrollableTimePicker extends Component {
     });
   };
 
+  getErrorText = (errorText) => (
+    <span style={{ color: 'red' }}>{errorText}</span>
+  );
 
   render() {
     const actions = [
-      <RaisedButton
+      <Button
+        variant="contained"
         style={{ marginRight: 10 }}
         label="Abbrechen"
         onClick={() => {
@@ -166,7 +170,8 @@ class ScrollableTimePicker extends Component {
           this.resetTimeValue();
         }}
       />,
-      <RaisedButton
+      <Button
+        variant="contained"
         style={{ marginLeft: 10 }}
         label="OK"
         primary
@@ -238,90 +243,118 @@ class ScrollableTimePicker extends Component {
           fullWidth
           onFocus={e => e.target.blur()}
           disabled={this.props.disabled}
-          floatingLabelText={`${this.props.floatingLabelText}${this.props.required ? '*' : ''}`}
+          label={`${this.props.floatingLabelText}${this.props.required ? '*' : ''}`}
           value={isNaN(this.state.minute) || isNaN(this.state.hour) ? '' : `${this.state.hour}:${this.doubleDigitalizeMinutes(this.state.minute)} Uhr`}
           onClick={this.handleOpen}
-          errorText={this.props.errorText}
+          helperText={this.props.errorText ? this.getErrorText(this.props.errorText) : ''}
         />
         <Dialog
-          actionsContainerStyle={{ padding: '8px 0 15px 0', textAlign: 'center' }}
-          title={`${this.props.floatingLabelText} - ${this.state.hour}:${this.doubleDigitalizeMinutes(this.state.minute)} Uhr`}
-          titleStyle={{ color: this.props.textColor }}
-          contentStyle={contentStyle}
-          bodyStyle={bodyStyle}
-          actions={actions}
-          modal={false}
           open={this.state.open}
-          onRequestClose={() => {
+          onClose={() => {
             this.handleClose();
             this.resetTimeValue();
           }}
+          PaperProps={{ square: true }}
         >
-          <div
-            className="time-picker-controls-container"
-            id="time-picker-controls-container"
-            style={controlsContainerStyle}
-          >
+          <DialogTitle>
+            <div style={{ color: this.props.textColor }} id="title" >
+              {`${this.props.floatingLabelText} - ${this.state.hour}:${this.doubleDigitalizeMinutes(this.state.minute)} Uhr`}
+            </div>
+          </DialogTitle>
+          <DialogContent >
             <div
-              className="hour-navigation-container"
-              id="hour-navigation-container"
-              style={controlElementStyle}
+              className="time-picker-controls-container"
+              id="time-picker-controls-container"
+              style={controlsContainerStyle}
             >
-              <NavigationExpandLess
-                style={arrowStyle}
-                id="sam-time-picker-add-hour"
-                onClick={this.addHour}
-              />
-              <ScrollableDigit
-                containerStyle={this.state.focusField === 'HOUR' ? digitStyleWithFocus : digitStyle}
-                singleDigitStyle={singleDigitStyle}
-                type="hour"
-                valueList={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}
-                value={this.state.hour}
-                setValue={(hour) => {
-                  this.setState({ hour });
-                }}
-              />
+              <div
+                className="hour-navigation-container"
+                id="hour-navigation-container"
+                style={controlElementStyle}
+              >
+                <ExpandLess
+                  style={arrowStyle}
+                  id="sam-time-picker-add-hour"
+                  onClick={this.addHour}
+                />
+                <ScrollableDigit
+                  containerStyle={this.state.focusField === 'HOUR' ? digitStyleWithFocus : digitStyle}
+                  singleDigitStyle={singleDigitStyle}
+                  type="hour"
+                  valueList={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}
+                  value={this.state.hour}
+                  setValue={(hour) => {
+                    this.setState({ hour });
+                  }}
+                />
 
-              <NavigationExpandMore
-                style={arrowStyle}
-                id="sam-time-picker-subtract-hour"
-                onClick={this.subtractHour}
-              />
+                <ExpandMore
+                  style={arrowStyle}
+                  id="sam-time-picker-subtract-hour"
+                  onClick={this.subtractHour}
+                />
+              </div>
+              {':'}
+              <div className="minute-navigation-container" id="minute-navigation-container" style={controlElementStyle}>
+                <ExpandLess style={arrowStyle} id="sam-time-picker-add-minute" onClick={this.toggleMinutes} />
+                <ScrollableDigit
+                  containerStyle={this.state.focusField === 'MINUTE' ? digitStyleWithFocus : digitStyle}
+                  singleDigitStyle={singleDigitStyle}
+                  type="minute"
+                  valueList={[0, 30]}
+                  value={this.state.minute}
+                  setValue={(minute) => {
+                    this.setState({ minute });
+                  }}
+                />
+                <ExpandMore
+                  style={arrowStyle}
+                  id="sam-time-picker-subtract-minute"
+                  onClick={this.toggleMinutes}
+                />
+              </div>
+              {'Uhr'}
             </div>
-            {':'}
-            <div className="minute-navigation-container" id="minute-navigation-container" style={controlElementStyle}>
-              <NavigationExpandLess style={arrowStyle} id="sam-time-picker-add-minute" onClick={this.toggleMinutes}/>
-              <ScrollableDigit
-                containerStyle={this.state.focusField === 'MINUTE' ? digitStyleWithFocus : digitStyle}
-                singleDigitStyle={singleDigitStyle}
-                type="minute"
-                valueList={[0, 30]}
-                value={this.state.minute}
-                setValue={(minute) => {
-                  this.setState({ minute });
-                }}
-              />
-              <NavigationExpandMore
-                style={arrowStyle}
-                id="sam-time-picker-subtract-minute"
-                onClick={this.toggleMinutes}
-              />
-            </div>
-            {'Uhr'}
-          </div>
-          <RaisedButton
-            secondary
-            style={{ margin: '10px 0' }}
-            onClick={() => {
-              const businessHour = this.props.getDefaultValue(this.props.value);
-              this.setState({
-                hour: businessHour.hour,
-                minute: businessHour.minute
-              });
-            }}
-            label={`Auf ${this.props.defaultValueLabel} setzen`}
-          />
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={() => {
+                const businessHour = this.props.getDefaultValue(this.props.value);
+                this.setState({
+                  hour: businessHour.hour,
+                  minute: businessHour.minute
+                });
+              }}
+            >
+              Auf {this.props.defaultValueLabel} setzen
+          </Button>
+          </DialogContent>
+          <DialogActions style={{ padding: '8px 0 15px 0', textAlign: 'center', justifyContent: 'center' }}>
+            <Button
+              id="cancelButton"
+              variant="contained"
+              style={{ marginRight: 10 }}
+              label="Abbrechen"
+              onClick={() => {
+                this.handleClose();
+                this.resetTimeValue();
+              }}
+            >
+              Abbrechen
+            </Button>
+            <Button
+              id="okButton"
+              variant="contained"
+              style={{ marginLeft: 10 }}
+              color="primary"
+              onClick={() => {
+                this.handleClose();
+                this.setTimeValue();
+              }}
+            >
+              OK
+            </Button>
+          </DialogActions>
         </Dialog>
       </div>
     );
