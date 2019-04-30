@@ -156,7 +156,7 @@ class ScrollableTimePicker extends Component {
   };
 
   getErrorText = (errorText) => (
-    <span style={{color: 'red'}}>{errorText}</span>
+    <span style={{ color: 'red' }}>{errorText}</span>
   );
 
   render() {
@@ -254,8 +254,7 @@ class ScrollableTimePicker extends Component {
             this.handleClose();
             this.resetTimeValue();
           }}
-          classes={{paper: { shape: { borderRadius: 0}}}}
-          PaperProps={{square: true}}
+          PaperProps={{ square: true }}
         >
           <DialogTitle>
             <div style={{ color: this.props.textColor }} id="title" >
@@ -263,77 +262,77 @@ class ScrollableTimePicker extends Component {
             </div>
           </DialogTitle>
           <DialogContent >
-          <div
-            className="time-picker-controls-container"
-            id="time-picker-controls-container"
-            style={controlsContainerStyle}
-          >
             <div
-              className="hour-navigation-container"
-              id="hour-navigation-container"
-              style={controlElementStyle}
+              className="time-picker-controls-container"
+              id="time-picker-controls-container"
+              style={controlsContainerStyle}
             >
-              <ExpandLess
-                style={arrowStyle}
-                id="sam-time-picker-add-hour"
-                onClick={this.addHour}
-              />
-              <ScrollableDigit
-                containerStyle={this.state.focusField === 'HOUR' ? digitStyleWithFocus : digitStyle}
-                singleDigitStyle={singleDigitStyle}
-                type="hour"
-                valueList={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}
-                value={this.state.hour}
-                setValue={(hour) => {
-                  this.setState({ hour });
-                }}
-              />
+              <div
+                className="hour-navigation-container"
+                id="hour-navigation-container"
+                style={controlElementStyle}
+              >
+                <ExpandLess
+                  style={arrowStyle}
+                  id="sam-time-picker-add-hour"
+                  onClick={this.addHour}
+                />
+                <ScrollableDigit
+                  containerStyle={this.state.focusField === 'HOUR' ? digitStyleWithFocus : digitStyle}
+                  singleDigitStyle={singleDigitStyle}
+                  type="hour"
+                  valueList={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}
+                  value={this.state.hour}
+                  setValue={(hour) => {
+                    this.setState({ hour });
+                  }}
+                />
 
-              <ExpandMore
-                style={arrowStyle}
-                id="sam-time-picker-subtract-hour"
-                onClick={this.subtractHour}
-              />
+                <ExpandMore
+                  style={arrowStyle}
+                  id="sam-time-picker-subtract-hour"
+                  onClick={this.subtractHour}
+                />
+              </div>
+              {':'}
+              <div className="minute-navigation-container" id="minute-navigation-container" style={controlElementStyle}>
+                <ExpandLess style={arrowStyle} id="sam-time-picker-add-minute" onClick={this.toggleMinutes} />
+                <ScrollableDigit
+                  containerStyle={this.state.focusField === 'MINUTE' ? digitStyleWithFocus : digitStyle}
+                  singleDigitStyle={singleDigitStyle}
+                  type="minute"
+                  valueList={[0, 30]}
+                  value={this.state.minute}
+                  setValue={(minute) => {
+                    this.setState({ minute });
+                  }}
+                />
+                <ExpandMore
+                  style={arrowStyle}
+                  id="sam-time-picker-subtract-minute"
+                  onClick={this.toggleMinutes}
+                />
+              </div>
+              {'Uhr'}
             </div>
-            {':'}
-            <div className="minute-navigation-container" id="minute-navigation-container" style={controlElementStyle}>
-              <ExpandLess style={arrowStyle} id="sam-time-picker-add-minute" onClick={this.toggleMinutes}/>
-              <ScrollableDigit
-                containerStyle={this.state.focusField === 'MINUTE' ? digitStyleWithFocus : digitStyle}
-                singleDigitStyle={singleDigitStyle}
-                type="minute"
-                valueList={[0, 30]}
-                value={this.state.minute}
-                setValue={(minute) => {
-                  this.setState({ minute });
-                }}
-              />
-              <ExpandMore
-                style={arrowStyle}
-                id="sam-time-picker-subtract-minute"
-                onClick={this.toggleMinutes}
-              />
-            </div>
-            {'Uhr'}
-          </div>
-          <Button
-            variant="raised"
-            color="secondary"
-            onClick={() => {
-              const businessHour = this.props.getDefaultValue(this.props.value);
-              this.setState({
-                hour: businessHour.hour,
-                minute: businessHour.minute
-              });
-            }}
-          >
-            Auf {this.props.defaultValueLabel} setzen
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={() => {
+                const businessHour = this.props.getDefaultValue(this.props.value);
+                this.setState({
+                  hour: businessHour.hour,
+                  minute: businessHour.minute
+                });
+              }}
+            >
+              Auf {this.props.defaultValueLabel} setzen
           </Button>
-        </DialogContent>
-        <DialogActions style={{ padding: '8px 0 15px 0', textAlign: 'center', justifyContent: 'center' }}>
+          </DialogContent>
+          <DialogActions style={{ padding: '8px 0 15px 0', textAlign: 'center', justifyContent: 'center' }}>
             <Button
               id="cancelButton"
-              variant="raised"
+              variant="contained"
               style={{ marginRight: 10 }}
               label="Abbrechen"
               onClick={() => {
@@ -345,7 +344,7 @@ class ScrollableTimePicker extends Component {
             </Button>
             <Button
               id="okButton"
-              variant="raised"
+              variant="contained"
               style={{ marginLeft: 10 }}
               color="primary"
               onClick={() => {
