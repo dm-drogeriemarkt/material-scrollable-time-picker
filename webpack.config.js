@@ -20,10 +20,12 @@ module.exports = {
           presets: ['react', 'env', 'es2015'],
           plugins: ['transform-class-properties', 'transform-object-rest-spread']
         }
-    }
-    ]},
-    externals: [nodeExternals()],
-  plugins: [
-    // new webpack.optimize.UglifyJsPlugin()
-  ]
+      }
+    ]
+  },
+  externals: [nodeExternals()],
+  plugins: [],
+  optimization: {
+    minimize: false
+  }
 }
