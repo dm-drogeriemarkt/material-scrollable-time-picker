@@ -1,3 +1,6 @@
+:warning: | This repository is not being maintained anymore.
+:---: | :---
+
 # Material-Ui Scrollable Time Picker
 
 [![dmTECH](https://opensourcelogos.aws.dmtech.cloud/dmTECH_opensource_logo%401x.png)](https://dmtech.de)
